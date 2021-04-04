@@ -14,6 +14,7 @@ function getAllPastLauches(){
           if (status === 0 || (status >= 200 && status < 400)) {
             // The request has been completed successfully
             parseLaunches(request.responseText);
+            console.log(request.responseText)
 
           } else {
             // Oh no! There has been an error with the request!
@@ -42,10 +43,17 @@ function createLaunchContainer(launch){
     img.src = launch.links.patch.small;
     let date = document.createElement("SPAN");
     date.textContent = launch.date_utc;
-
+    let youtube = document.createElement("span");
+    youtube.textContent = launch.links.webcast;
+console.log (launch.links.webcast)
     elem.appendChild(img);
     elem.appendChild(date);
-
+    elem.appendChild(youtube)
+    
     container.appendChild(elem);
+
+
+
+  
 
 }
